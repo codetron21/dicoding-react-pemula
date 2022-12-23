@@ -1,5 +1,8 @@
 import React from "react";
 
+import LabelNote from "./LabelNote";
+import Spacer from "./Spacer";
+
 class CreateNote extends React.Component {
   constructor(props) {
     super(props);
@@ -39,7 +42,9 @@ class CreateNote extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="note-create">
+        <LabelNote label="Tambah Catatan" />
+        <Spacer v={20} />
         <input
           value={this.state.title}
           placeholder="Judul"

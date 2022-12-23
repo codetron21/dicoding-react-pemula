@@ -1,5 +1,5 @@
 import React from "react";
 
-const Text = ({ children }) => <h5>{children}</h5>;
+const Text = ({ children }) => <h4 className="text">{children}</h4>;
 
 export default Text;

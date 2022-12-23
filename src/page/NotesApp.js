@@ -6,6 +6,7 @@ import Text from "../components/Text";
 import HeaderNote from "../components/HeaderNote";
 import SearchNote from "../components/SearchNote";
 import CreateNote from "../components/CreateNote";
+import Spacer from "../components/Spacer";
 import { getInitialData } from "../utils";
 
 class NotesApp extends React.Component {
@@ -100,34 +101,43 @@ class NotesApp extends React.Component {
     return (
       <>
         <HeaderNote title="Notes" />
+        <Spacer v={20} />
         <SearchNote
           value={this.state.query}
           hint="Judul catatan"
           onChange={this.onQueryChange}
           onSubmit={this.onSearchSubmitted}
         />
+        <Spacer v={20} />
         <CreateNote onAddNoteSubmitted={this.onAddNoteSubmitted} />
-        <LabelNote label="Catatan Aktif" />
-        {this.getNotes().length ? (
-          <ListNote
-            items={this.getNotes()}
-            onDelete={this.onDelete}
-            onArchive={this.onArchive}
-          />
-        ) : (
-          <Text>Tidak ada catatan</Text>
-        )}
+        <Spacer v={20} />
+        <div className="note-app__list-note">
+          <div>
+            <LabelNote label="Catatan Aktif" />
+            {this.getNotes().length ? (
+              <ListNote
+                items={this.getNotes()}
+                onDelete={this.onDelete}
+                onArchive={this.onArchive}
+              />
+            ) : (
+              <Text>Tidak ada catatan</Text>
+            )}
+          </div>
 
-        <LabelNote label="Catatan Arsip" />
-        {this.getArchiveNote().length ? (
-          <ListNote
-            items={this.getArchiveNote()}
-            onDelete={this.onDelete}
-            onArchive={this.onArchive}
-          />
-        ) : (
-          <Text>Tidak ada catatan</Text>
-        )}
+          <div>
+            <LabelNote label="Catatan Arsip" />
+            {this.getArchiveNote().length ? (
+              <ListNote
+                items={this.getArchiveNote()}
+                onDelete={this.onDelete}
+                onArchive={this.onArchive}
+              />
+            ) : (
+              <Text>Tidak ada catatan</Text>
+            )}
+          </div>
+        </div>
       </>
     );
   }

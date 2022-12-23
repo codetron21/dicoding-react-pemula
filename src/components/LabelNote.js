@@ -1,5 +1,5 @@
 import React from "react";
 
-const LabelNote = ({ label }) => <h3>{label}</h3>;
+const LabelNote = ({ label }) => <h2>{label}</h2>;
 
 export default LabelNote;
