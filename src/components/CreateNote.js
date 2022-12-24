@@ -46,17 +46,24 @@ class CreateNote extends React.Component {
         <LabelNote label="Tambah Catatan" />
         <Spacer v={20} />
         <input
+          className="note__input"
           value={this.state.title}
           placeholder="Judul"
           onChange={this.onTitleChange}
         />
-        <input
+        <Spacer v={10} />
+        <textarea
+          className="note__input"
           value={this.state.body}
-          type="textarea"
           placeholder="Deskripsi"
           onChange={this.onBodyChange}
+          rows="4"
+          cols="50"
+          style={{ resize: "none" }}
         />
+        <Spacer v={10} />
         <button
+          className="button-large"
           type="button"
           onClick={() =>
             this.props.onAddNoteSubmitted(this.state.title, this.state.body)
